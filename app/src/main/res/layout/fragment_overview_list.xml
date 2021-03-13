@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="realestate"
+            type="com.example.marsrealestate.dummy.RealEstateData" />
+        <variable
+            name="clicklistener"
+            type="com.example.marsrealestate.dummy.RealEstateData" />
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:name="com.example.marsrealestate.OverviewFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:context=".OverviewFragment"
+        tools:listitem="@layout/fragment_overview" />
+</layout>

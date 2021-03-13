@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">marsrealestate</string>
+    <string name="overview_fragment">Overview Fragment</string>
+</resources>

@@ -33,10 +33,10 @@ class OverviewFragment : Fragment() {
         val manager = GridLayoutManager(activity, 2)
         binding.list.layoutManager = manager
         binding.setLifecycleOwner(this)
-        val adapter = RealEstateRecyclerViewAdapter(RealEstateClickListener { id ->
+        val adapter = RealEstateRecyclerViewAdapter(RealEstateClickListener { realEstateData ->
             /*Toast.makeText(context, "${nightId}", Toast.LENGTH_LONG).show()*/
-           /* val action = SleepTrackerFragmentDirections.actionSleepTrackerFragmentToSleepDetailsFragment(nightId)
-            NavHostFragment.findNavController(this).navigate(action)*/
+            val action = OverviewFragmentDirections.actionOverviewFragmentToDetailFragment(realEstateData)
+            NavHostFragment.findNavController(this).navigate(action)
         })
         binding.list.adapter = adapter
 

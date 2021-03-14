@@ -2,6 +2,7 @@ package com.example.marsrealestate
 
 import com.example.marsrealestate.dummy.RealEstateData
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -20,6 +21,6 @@ object RealEstateAPI {
 interface RealEstateApiService {
 
     @GET("realestate")
-    fun getProperties(): Call<List<RealEstateData>>
+   suspend fun getProperties(): List<RealEstateData>
 
 }

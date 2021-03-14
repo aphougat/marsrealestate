@@ -21,6 +21,16 @@
 
         <ImageView
             android:id="@+id/property_image"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:padding="2dp"
+            app:realEstateImage="@{realEstate.img_src}"
+            tools:src="@tools:sample/backgrounds/scenic"/>
+
+       <!-- <ImageView
+            android:id="@+id/property_image"
             android:layout_width="@dimen/icon_size"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
@@ -29,8 +39,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:realEstateImage="@{realEstate}"
-            tools:srcCompat="@drawable/ic_launcher_foreground" />
+            app:realEstateImage="@{realEstate.img_src}"
+            tools:srcCompat="@drawable/ic_launcher_foreground" />-->
 
     </LinearLayout>
 </layout>

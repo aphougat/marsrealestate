@@ -5,7 +5,10 @@ import android.net.Uri
 import android.webkit.URLUtil
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.marsrealestate.dummy.RealEstateData
 import java.net.URL
 
@@ -27,11 +30,13 @@ fun TextView.setRealEstatePrice(item: RealEstateData?)
 }
 
 @BindingAdapter("realEstateImage")
-fun ImageView.setRealEstateImage(item: RealEstateData?)
+fun setRealEstateImage(imageView: ImageView,imageUrl: String?)
 {
-    item?.let {
-        var url = URL(item.img_src)
-        val bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream())
-        setImageBitmap(bmp)
+    imageUrl?.let {
+        val uri = imageUrl.toUri().buildUpon().scheme("https").build()
+        Glide.with(imageView.context).load(uri).apply(
+            RequestOptions()
+                .placeholder(R.drawable.loading_animation)
+                .error(R.drawable.ic_broken_image)).into(imageView)
     }
 }

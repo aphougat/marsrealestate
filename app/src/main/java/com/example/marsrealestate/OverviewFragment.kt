@@ -9,14 +9,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.example.marsrealestate.databinding.FragmentOverviewListBinding
 import com.example.marsrealestate.dummy.RealEstateData
+import kotlinx.android.synthetic.main.fragment_overview_list.*
 
 /**
  * A fragment representing a list of Items.
  */
 class OverviewFragment : Fragment() {
+
+    private val viewModel: OverviewViewModel by lazy {
+        ViewModelProvider(this).get(OverviewViewModel::class.java) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +39,8 @@ class OverviewFragment : Fragment() {
             NavHostFragment.findNavController(this).navigate(action)*/
         })
         binding.list.adapter = adapter
-        //adapter.data = viewModel.sleepRecords.value!!
+
+        viewModel.response.observe(viewLifecycleOwner, Observer { list ->  adapter.submitList( list) })
        /* viewModel.sleepRecords.observe(viewLifecycleOwner, Observer { list -> adapter.addHeaderAndSubmitList( list) })
         binding.viewModel = viewModel*/
         return binding.root

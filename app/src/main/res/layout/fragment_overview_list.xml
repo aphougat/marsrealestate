@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
+       <!-- <variable
             name="realestate"
             type="com.example.marsrealestate.dummy.RealEstateData" />
         <variable
             name="clicklistener"
-            type="com.example.marsrealestate.dummy.RealEstateData" />
+            type="com.example.marsrealestate.dummy.RealEstateData" />-->
     </data>
 
     <androidx.recyclerview.widget.RecyclerView

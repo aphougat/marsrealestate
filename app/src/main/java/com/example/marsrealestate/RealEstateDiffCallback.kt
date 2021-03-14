@@ -10,7 +10,7 @@ class RealEstateDiffCallback : DiffUtil.ItemCallback<RealEstateData>() {
     }
 
     override fun areContentsTheSame(oldItem: RealEstateData, newItem: RealEstateData): Boolean {
-        oldItem == newItem
+        return oldItem == newItem
     }
 
     override fun getChangePayload(oldItem: RealEstateData, newItem: RealEstateData): Any? {

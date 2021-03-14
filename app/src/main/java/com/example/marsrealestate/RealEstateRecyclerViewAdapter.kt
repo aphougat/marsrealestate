@@ -1,14 +1,10 @@
 package com.example.marsrealestate
 
-import androidx.recyclerview.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.marsrealestate.dummy.RealEstateData
 
-import com.example.marsrealestate.dummy.RealEstateData.DummyItem
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem].
@@ -17,16 +13,16 @@ import com.example.marsrealestate.dummy.RealEstateData.DummyItem
 class RealEstateRecyclerViewAdapter(val clickListener: RealEstateClickListener) : ListAdapter<RealEstateData, RealEstateViewHolder>(RealEstateDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RealEstateViewHolder {
-       /* val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_overview, parent, false)*/
+        /* val view = LayoutInflater.from(parent.context)
+             .inflate(R.layout.fragment_overview, parent, false)*/
         return RealEstateViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: RealEstateViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
-       /* holder.idView.text = item.id
-        holder.contentView.text = item.content*/
+        holder.bind(item, clickListener)
+        /* holder.idView.text = item.id
+         holder.contentView.text = item.content*/
     }
 
 }

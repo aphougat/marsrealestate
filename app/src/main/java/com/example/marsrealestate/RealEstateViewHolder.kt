@@ -4,10 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marsrealestate.databinding.FragmentOverviewBinding
-import com.example.marsrealestate.databinding.FragmentOverviewListBinding
 import com.example.marsrealestate.dummy.RealEstateData
 
-class RealEstateViewHolder private constructor(binding: FragmentOverviewBinding) : RecyclerView.ViewHolder(binding.root) {
+class RealEstateViewHolder private constructor(val binding: FragmentOverviewBinding) : RecyclerView.ViewHolder(binding.root) {
 
     companion object {
         fun from(parent: ViewGroup) : RealEstateViewHolder {

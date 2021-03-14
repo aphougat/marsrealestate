@@ -1,10 +1,14 @@
 package com.example.marsrealestate
 
+import android.graphics.BitmapFactory
 import android.net.Uri
+import android.webkit.URLUtil
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.marsrealestate.dummy.RealEstateData
+import java.net.URL
+
 
 @BindingAdapter("realEstateType")
 fun TextView.setRealEstateType(item: RealEstateData?)
@@ -26,6 +30,8 @@ fun TextView.setRealEstatePrice(item: RealEstateData?)
 fun ImageView.setRealEstateImage(item: RealEstateData?)
 {
     item?.let {
-        setImageURI(Uri.parse(item.url))
+        var url = URL(item.img_src)
+        val bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream())
+        setImageBitmap(bmp)
     }
 }

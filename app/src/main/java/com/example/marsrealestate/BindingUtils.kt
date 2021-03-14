@@ -2,6 +2,7 @@ package com.example.marsrealestate
 
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.view.View
 import android.webkit.URLUtil
 import android.widget.ImageView
 import android.widget.TextView
@@ -38,5 +39,23 @@ fun setRealEstateImage(imageView: ImageView,imageUrl: String?)
             RequestOptions()
                 .placeholder(R.drawable.loading_animation)
                 .error(R.drawable.ic_broken_image)).into(imageView)
+    }
+}
+
+@BindingAdapter("apiStatus")
+fun bindApiStatus(imageView: ImageView, status: Status?)
+{
+    when(status){
+        Status.LOADING -> {
+            imageView.visibility = View.VISIBLE
+            imageView.setImageResource(R.drawable.loading_animation)
+        }
+        Status.ERROR -> {
+            imageView.visibility = View.VISIBLE
+            imageView.setImageResource(R.drawable.ic_connection_error)
+        }
+        Status.DONE -> {
+            imageView.visibility = View.GONE
+        }
     }
 }

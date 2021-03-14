@@ -41,6 +41,7 @@ class OverviewFragment : Fragment() {
         binding.list.adapter = adapter
 
         viewModel.response.observe(viewLifecycleOwner, Observer { list ->  adapter.submitList( list) })
+        binding.viewModel = viewModel
        /* viewModel.sleepRecords.observe(viewLifecycleOwner, Observer { list -> adapter.addHeaderAndSubmitList( list) })
         binding.viewModel = viewModel*/
         return binding.root

@@ -25,25 +25,25 @@ class OverviewViewModel : ViewModel() {
     private val coroutineScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     init{
+
+        getMarsRealEstateProperties(RealEstateApiFilter.SHOW_ALL)
+    }
+
+    private fun getMarsRealEstateProperties(filter : RealEstateApiFilter){
         coroutineScope.launch {
             try {
                 _status.value = Status.LOADING
-                _response.value = RealEstateAPI.retrofitService.getProperties()
+                _response.value = RealEstateAPI.retrofitService.getProperties(filter.value)
                 _status.value = Status.DONE
             }catch(e :Exception)
             {
                 _status.value = Status.ERROR
             }
         }
-        /*RealEstateAPI.retrofitService.getProperties().enqueue( object: Callback<List<RealEstateData>> {
-            override fun onFailure(call: Call<List<RealEstateData>>, t: Throwable) {
-                throw IllegalArgumentException("No Data Found")
-            }
+    }
 
-            override fun onResponse(call: Call<List<RealEstateData>>, response: Response<List<RealEstateData>>) {
-                _response.value = response.body()
-            }
-        })*/
+    fun updateFilter(filter: RealEstateApiFilter) {
+        getMarsRealEstateProperties(filter)
     }
 
     override fun onCleared() {

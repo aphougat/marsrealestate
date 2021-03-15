@@ -2,4 +2,7 @@
     <string name="app_name">marsrealestate</string>
     <string name="overview_fragment">Overview Fragment</string>
     <string name="detail_fragment">Detail Fragment</string>
+    <string name="showAll">Show All</string>
+    <string name="rent">Rent</string>
+    <string name="buy">Buy</string>
 </resources>
